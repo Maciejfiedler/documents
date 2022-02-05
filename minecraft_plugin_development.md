@@ -3,7 +3,9 @@
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven {
+        url = uri("https://papermc.io/repo/repository/maven-public/")
+    }
 }
 
 dependencies {
@@ -16,7 +18,11 @@ dependencies {
     implementation("org.apache.logging.log4j", "log4j-api", "2.17.1")
     implementation("org.apache.logging.log4j", "log4j-core", "2.17.1")
 
-    compileOnly("org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 ```
 
